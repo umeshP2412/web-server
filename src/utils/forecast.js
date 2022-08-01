@@ -16,7 +16,8 @@ const forecast = (latitude, longitude, callback) => {
                 description: body.current.weather_descriptions[0],
                 location: body.location.name,
                 temperature: body.current.temperature,
-                precipation: body.current.precip 
+                precipation: body.current.precip,
+                weather_img: body.current.weather_icons 
             })
         }
     })

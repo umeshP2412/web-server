@@ -65,7 +65,7 @@ app.get('/weather', (req, res) => {
             });
         }
 
-        forecast(latitude,longitude, (error, {description, location, temperature, precipation} = {}) => {
+        forecast(latitude,longitude, (error, {description, location, temperature, precipation, weather_img} = {}) => {
 
             if(error){
                 return res.send({
@@ -76,8 +76,9 @@ app.get('/weather', (req, res) => {
             if(temperature !== undefined){
                 res.send({
                     forecast: 'Current temperature in '+ location + ' is ' + temperature,
-                    atmosephere: 'Atmosephere feels like there will be '+ description,
-                    address: req.query.address
+                    atmosephere: 'Atmosephere feels like there will be '+ description + '. Chances of Rain is ' + precipation,
+                    address: req.query.address,
+                    weather_img: weather_img
                 })
             }
         })
